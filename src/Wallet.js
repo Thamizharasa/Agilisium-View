@@ -112,11 +112,15 @@ render()
             <Row>
             <Col  lg="3">
             <label>Wallet Date  </label>
+            <div>
             <input type="date" name= "WalletDate" value={this.state.WalletDate} width="120" height="40" onChange={this.onchange.bind()}/>
+            </div>
             </Col>
             <Col  lg="3">
             <label>Description  </label>
-            <input type="text" name= "Description" value={this.state.Description} width="120" height="40" onChange={this.onchange.bind()}/>
+            <div>
+                <input type="text" name= "Description" value={this.state.Description} width="120" height="40" onChange={this.onchange.bind()}/>
+            </div>
             </Col>
             <Col  lg="3">
             <label>Type  </label>
@@ -140,11 +144,15 @@ render()
 
                    <Row>
               <Col lg="3">
+                 
                  <input type="button" name="Add" width="120" value="Add" height="40" onClick={this.onAdd.bind()}/>
+                 
                 
             </Col>
             <Col lg="3">
+            <div>
                 <input type="button" name="Add" width="120" value="Clear" height="40" onClick={this.Onclear.bind()}/>
+                </div>
             </Col> 
             </Row>  
             <br/>
@@ -165,5 +173,4 @@ render()
 }
 
 export default Wallet;
-
 

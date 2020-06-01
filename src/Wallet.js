@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import WalletList from './Walletlst'
+import WalletList from './Walletlst';
+import { Row, Col, Container,Box} from "reactstrap";
+import "bootstrap/dist/css/bootstrap.css";
+
 
 
 class Wallet extends React.Component
@@ -104,61 +107,57 @@ render()
     {
             return(
                 <div>
-                  <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <label>Wallet Date : </label>
-                    </td>
-                        <td>
-                       
-                         <input type="date" name= "WalletDate" value={this.state.WalletDate} width="120" height="40" onChange={this.onchange.bind()}/>
-                </td>
 
-                <td>
-                        <label>Description : </label>
-                    </td>
-
-                <td>
-                <input type="text" name= "Description" value={this.state.Description} width="120" height="40" onChange={this.onchange.bind()}/>
-                </td>
-                
-                <td>
-                        <label>Type : </label>
-                    </td>
-                <td>
-
-                <select id = "Type" name="Type" width="120" value={this.state.Type} height="40" onChange={this.onchange.bind()}>
+            <Container>
+            <Row>
+            <Col  lg="3">
+            <label>Wallet Date  </label>
+            <input type="date" name= "WalletDate" value={this.state.WalletDate} width="120" height="40" onChange={this.onchange.bind()}/>
+            </Col>
+            <Col  lg="3">
+            <label>Description  </label>
+            <input type="text" name= "Description" value={this.state.Description} width="120" height="40" onChange={this.onchange.bind()}/>
+            </Col>
+            <Col  lg="3">
+            <label>Type  </label>
+            <div>
+            <select id = "Type" name="Type" width="120" value={this.state.Type} height="40" onChange={this.onchange.bind()}>
                   <option key="Income" value="Income">Income</option>
                   <option key="Expense" value="Expense">Expense</option>
                 </select>
-                </td>
-
-                <td>
-                        <label>Amount : </label>
-                    </td>
-                <td>
-                    
-                <input type="text" name= "Amount" width="120" height="40" value={this.state.Amount} onChange={this.onchange.bind()}/>  
-                </td>
-                <td>
-                    <input type="button" name="Add" width="120" value="Add" height="40" onClick={this.onAdd.bind()}/>
-                </td>
-
-                <td>
-                    <input type="button" name="Add" width="120" value="Clear" height="40" onClick={this.Onclear.bind()}/>
-                </td>
-                </tr>
-                <tr>
-                   
-                   <td colSpan="5">
-                        <WalletList  Walletlst={this.state.Walletlst} delete={this.HandleDelete.bind()}  Edit={this.HandleEdit.bind()}/>
-                   </td>
-                </tr>
-
-                </tbody>
-                </table>
                 </div>
+            </Col>
+            <Col  lg="3">
+            <label>Amount  </label>
+            <div>
+            <input type="text" name= "Amount" width="120" height="40" value={this.state.Amount} onChange={this.onchange.bind()}/>  
+            </div>
+            </Col>
+                     </Row>
+
+<br/>
+
+
+                   <Row>
+              <Col lg="3">
+                 <input type="button" name="Add" width="120" value="Add" height="40" onClick={this.onAdd.bind()}/>
+                
+            </Col>
+            <Col lg="3">
+                <input type="button" name="Add" width="120" value="Clear" height="40" onClick={this.Onclear.bind()}/>
+            </Col> 
+            </Row>  
+            <br/>
+<Row>
+     <WalletList  Walletlst={this.state.Walletlst} delete={this.HandleDelete.bind()}  Edit={this.HandleEdit.bind()}/>    
+</Row>
+
+</Container>
+
+
+                 
+</div>
+
             )
     }
 
@@ -166,4 +165,5 @@ render()
 }
 
 export default Wallet;
+
 
